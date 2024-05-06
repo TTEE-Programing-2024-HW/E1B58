@@ -32,6 +32,12 @@ int main(){
     while (attempt < 3) {
         printf("Enter the password: ");
         scanf("%s", input);
-    } 
+   if(strcmp(input,password)==0)
+   {
+   	
+   }
+} 
+    
+    
     return 0;
 }
