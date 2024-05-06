@@ -30,13 +30,21 @@ int main(){
     
     // Åª¨ú±K½X¨ÃÀË¬d
     while (1) {
+
+   
+   attempt++;
         printf("Enter the password: ");
         scanf("%s", input);
    if(strcmp(input,password)==0)
    break;
    else{
-   	attempt++;
+   	if(attempt==3)
+   	{printf("Too many incorrect password attempts. Exiting program.\n");
+	  return 0; }
+   	
+   	else{
    	printf("you have %d chance enter again:",3-attempt);
+   		}
    }
 } 
     
