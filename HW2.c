@@ -42,7 +42,7 @@ int main(){
    		else{
    	if(attempt==3)//累計三次，程式結束 
    	{	printf("Too many incorrect password attempts. Exiting program.\n");
-	 	 return 0; 
+	 	 return 0; //程式結束
 		  }
    	
    	else{
@@ -78,12 +78,12 @@ int main(){
 				printf("error,please enter a~n\n:");
 				} 
 			}
-		for( i = ch ; i >= 'a'; i--){
+		for( i = ch ; i >= 'a'; i--){ //每一行遞減 遞減到a
 			int j=i-'a';
-			for(j=i-'a';j>0;j--){
+			for(j=i-'a';j>0;j--){	//印空格	
 				printf(" ");
 				}
-		for(j=i;j<=ch;j++){
+		for(j=i;j<=ch;j++){			//每一橫排從i開始
 				printf("%c",j);
 				}
 				printf("\n");	
@@ -110,20 +110,19 @@ int main(){
 			printf("\n");
 			}
 		system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
-		system("CLS");
-		
-		}
+		system("CLS");	//第四題結束 
+		}				//第五題開始 
 	else if(ch=='C'||ch=='c'){
 			printf("Continue?(y/n)\n");
 			scanf("%c",&ps);
 		while(1){
-			fflush(stdin);
+			fflush(stdin);	//清空暫存 
 			scanf("%c",&ps);
 			if(ps=='Y'||ps=='y'){
 				break;
 			}
 			else if(ps=='N'||ps=='n'){
-				return 0;
+				return 0;	//程式結束
 			}			
 			else{
 			printf("error,pls enter y/n>>");	
@@ -131,11 +130,11 @@ int main(){
 		}
 		system("CLS");
 	}
-	else{
+	else{					//其他 
 		printf("error,pls enter a b c");
 		system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
 		system("CLS");
 		}
 	}
-    return 0;
+    return 0;		//程式結束
 }
