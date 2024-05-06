@@ -61,7 +61,7 @@ int main(){
 //第三題開始
     fflush(stdin);
     char ch,i,j;
-    int g;
+    int g,u,k;
     	scanf("%c",&ch);
     	if(ch=='A'||ch=='a'){
     		system("CLS");
@@ -87,15 +87,27 @@ int main(){
 				printf("\n");	
 		}
 	}
-	else{
-		if(ch=='B'||ch=='b'){
+	else if(ch=='B'||ch=='b'){
 		printf("enter 1~9\n:");
-		scanf("%d",g);
-		}
-		else{
+		scanf("%d",&g);
+		while(1){
+				if(g>=1||g<=9){
+					for( k=1;k<=g;i++){		//顯示九九乘法表
+					for( u=1;u<=g;j++){
+					printf("%d×%d=%d ",k,u,i*j);
+							}
+							printf("\n");
+						}
+					}
+				else{
+					printf("enter again");
+				}
+			}
+	}
+	else if(1){
 			
 		}
-	}
+
 	
 	
     return 0;
