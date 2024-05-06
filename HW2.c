@@ -62,7 +62,7 @@ int main(){
 //第二題結束
 //第三題開始
     fflush(stdin);
-    char ch,i,j;
+    char ch,i,j,ps;
     int g,u,k;
     	scanf("%c",&ch);
     	if(ch=='A'||ch=='a'){
@@ -114,15 +114,17 @@ int main(){
 		
 		}
 	else if(ch=='C'||ch=='c'){
-			printf("Continue?(y/n)");
-			if(ch=='Y'||ch=='y'){
+			printf("Continue?(y/n)\n");
+			while(1){
+			scanf("%c",&ps);
+			if(ps=='Y'||ps=='y'){
 				break;
 			}
-			if(ch=='N'||ch=='n'){
+			if(ps=='N'||ps=='n'){
 				return 0;
 			}
 		}
-
+	}
 	
 	}
     return 0;
