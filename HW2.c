@@ -61,11 +61,11 @@ int main(){
 //第三題開始
     fflush(stdin);
     char ch,i,j;
+    int g;
     	scanf("%c",&ch);
     	if(ch=='A'||ch=='a'){
     		system("CLS");
     		printf("please enter a~n\n:");
-			}
     	while(1){
     		fflush(stdin);
     		ch=0;
@@ -74,18 +74,29 @@ int main(){
 				break;
 			else{
 				printf("error,please enter a~n\n:");
-			} 
+				} 
+			}
+		for( i = ch ; i >= 'a'; i--){
+			int j=i-'a';
+			for(j=i-'a';j>0;j--){
+				printf(" ");
+				}
+		for(j=i;j<=ch;j++){
+				printf("%c",j);
+				}
+				printf("\n");	
 		}
-	for( i = ch ; i >= 'a'; i--){
-	int j=i-'a';
-		for(j=i-'a';j>=i;j--){
-			printf(" ");
-		}
-		for(j=i;j<=ch;j++)	{
-			printf("%c",j);	
-		}
-		printf("\n");	
 	}
+	else{
+		if(ch=='B'||ch=='b'){
+		printf("enter 1~9\n:");
+		scanf("%d",g);
+		}
+		else{
+			
+		}
+	}
+	
 	
     return 0;
 }
