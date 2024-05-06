@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<string.h>
+
 int main(){
     
     //第一題個人風格畫面
@@ -51,6 +52,7 @@ int main(){
 } 
 //第一題結束
 //第二題開始 
+	while(1){
     printf("~=welcome=~\n");
     printf("■■■■■■■■■■■■■■■■■■\n");
     printf("■a.畫出直角三角形■\n");
@@ -86,17 +88,19 @@ int main(){
 				}
 				printf("\n");	
 		}
+	system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
+	system("CLS");
 	}
-	else if(ch=='B'||ch=='b'){
+	else if(ch=='B'||ch=='b'){	//第四題開始 
 		printf("enter 1~9\n:");
 		
 		while(1){
 				scanf("%d",&g);
-				if(g>=1&&g<=9){
-						break;
+				if(g>=1&&g<=9){	//判斷輸入數字 
+						break;	//跳脫迴圈 
 					}
 				else{
-					printf("enter again");
+					printf("enter again\n:");
 				}
 			}
 		for( k=1;k<=g;k++){		//顯示九九乘法表
@@ -105,12 +109,15 @@ int main(){
 			}
 			printf("\n");
 			}
-	}
+		system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
+		system("CLS");
+		
+		}
 	else if(1){
 			
 		}
 
 	
-	
+	}
     return 0;
 }
