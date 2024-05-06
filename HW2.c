@@ -89,19 +89,21 @@ int main(){
 	}
 	else if(ch=='B'||ch=='b'){
 		printf("enter 1~9\n:");
-		scanf("%d",&g);
+		
 		while(1){
-				if(g>=1||g<=9){
-					for( k=1;k<=g;i++){		//顯示九九乘法表
-					for( u=1;u<=g;j++){
-					printf("%d×%d=%d ",k,u,i*j);
-							}
-							printf("\n");
-						}
+				scanf("%d",&g);
+				if(g>=1&&g<=9){
+						break;
 					}
 				else{
 					printf("enter again");
 				}
+			}
+		for( k=1;k<=g;k++){		//顯示九九乘法表
+		for( u=1;u<=g;u++){
+			printf("%d×%d=%d ",u,k,u*k);
+			}
+			printf("\n");
 			}
 	}
 	else if(1){
