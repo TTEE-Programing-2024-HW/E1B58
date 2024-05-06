@@ -55,8 +55,13 @@ int main(){
     printf("■c.結束          ■\n");
     printf("■■■■■■■■■■■■■■■■■■\n");
 //第二題結束
-    
-    
-    
+//第三題開始
+    fflush(stdin);
+    char ch;
+    	scanf("%c",&ch);
+    	if(ch=='A'||ch=='a'){
+    		printf("you're best!'");
+		}
+    	
     return 0;
 }
