@@ -115,17 +115,27 @@ int main(){
 		}
 	else if(ch=='C'||ch=='c'){
 			printf("Continue?(y/n)\n");
-			while(1){
+			scanf("%c",&ps);
+		while(1){
+			fflush(stdin);
 			scanf("%c",&ps);
 			if(ps=='Y'||ps=='y'){
 				break;
 			}
-			if(ps=='N'||ps=='n'){
+			else if(ps=='N'||ps=='n'){
 				return 0;
-			}
+			}			
+			else{
+			printf("error,pls enter y/n>>");	
+			}	
 		}
+		system("CLS");
 	}
-	
+	else{
+		printf("error,pls enter a b c");
+		system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
+		system("CLS");
+		}
 	}
     return 0;
 }
