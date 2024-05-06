@@ -29,12 +29,14 @@ int main(){
     int attempt = 0; // 密碼嘗試次數
     
     // 讀取密碼並檢查
-    while (attempt < 3) {
+    while (1) {
         printf("Enter the password: ");
         scanf("%s", input);
    if(strcmp(input,password)==0)
-   {
-   	
+   break;
+   else{
+   	attempt++;
+   	printf("you have %d chance enter again:",3-attempt);
    }
 } 
     
