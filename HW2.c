@@ -47,7 +47,11 @@ int main(){
    		}
    }
 } 
-    
-    
+    printf("~=welcome=~\n");
+    printf("――――――――――――――――");
+    printf("―              ―");
+    printf("―              ―");
+    printf("―              ―");
+    printf("――――――――――――――――");
     return 0;
 }
