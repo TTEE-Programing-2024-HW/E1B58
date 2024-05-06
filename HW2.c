@@ -60,8 +60,15 @@ int main(){
     char ch;
     	scanf("%c",&ch);
     	if(ch=='A'||ch=='a'){
-    		printf("you're best!'");
+    		system("CLS");
+    		printf("please enter a~n\n:");
+    	while(1){
+			if(ch>='a'&&ch<='n')
+			break;
+			else{
+				printf("error,please enter a~n\n:");
+			} 
 		}
-    	
+	}
     return 0;
 }
