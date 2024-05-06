@@ -1,5 +1,7 @@
 #include<stdio.h>
-
+#include<stdlib.h>
+#include<conio.h>
+#include<string.h>
 int main(){
     
     //第一題個人風格畫面
@@ -58,8 +60,7 @@ int main(){
 //第二題結束
 //第三題開始
     fflush(stdin);
-    char ch,i;
-    int j;
+    char ch,i,j;
     	scanf("%c",&ch);
     	if(ch=='A'||ch=='a'){
     		system("CLS");
@@ -75,13 +76,15 @@ int main(){
 				printf("error,please enter a~n\n:");
 			} 
 		}
-	char e;
-	for(i = ch ; i >= 'a'; i--){
-		for(j=i;j<=ch;j++){
+	for( i = ch ; i >= 'a'; i--){
+	int j=i-'a';
+		for(j=i-'a';j>=i;j--){
 			printf(" ");
 		}
-		for(e=i;e<=ch;e++);	
-			printf("%c",e);	
+		for(j=i;j<=ch;j++)	{
+			printf("%c",j);	
+		}
+		printf("\n");	
 	}
 	
     return 0;
