@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 int main(){
     
     //第一題個人風格畫面
@@ -57,18 +58,31 @@ int main(){
 //第二題結束
 //第三題開始
     fflush(stdin);
-    char ch;
+    char ch,i;
+    int j;
     	scanf("%c",&ch);
     	if(ch=='A'||ch=='a'){
     		system("CLS");
     		printf("please enter a~n\n:");
+			}
     	while(1){
+    		fflush(stdin);
+    		ch=0;
+    		scanf("%c",&ch);
 			if(ch>='a'&&ch<='n')
-			break;
+				break;
 			else{
 				printf("error,please enter a~n\n:");
 			} 
 		}
+	char e;
+	for(i = ch ; i >= 'a'; i--){
+		for(j=i;j<=ch;j++){
+			printf(" ");
+		}
+		for(e=i;e<=ch;e++);	
+			printf("%c",e);	
 	}
+	
     return 0;
 }
