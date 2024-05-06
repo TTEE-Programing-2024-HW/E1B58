@@ -24,5 +24,14 @@ int main(){
 	system("CLS");
 	//第一題結束
     
+    char password[] = "2024"; // 正確的密碼
+    char input[20]; // 用於接收密碼輸入
+    int attempt = 0; // 密碼嘗試次數
+    
+    // 讀取密碼並檢查
+    while (attempt < 3) {
+        printf("Enter the password: ");
+        scanf("%s", input);
+    } 
     return 0;
 }
