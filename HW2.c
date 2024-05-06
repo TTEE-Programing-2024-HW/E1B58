@@ -48,10 +48,10 @@ int main(){
    }
 } 
     printf("~=welcome=~\n");
-    printf("■■■■■■■■■■■■■■■■");
-    printf("■              ■");
-    printf("■              ■");
-    printf("■              ■");
-    printf("■■■■■■■■■■■■■■■■");
+    printf("■■■■■■■■■■■■■■■■■■\n");
+    printf("■a.畫出直角三角形■\n");
+    printf("■b.顯示乘法表    ■\n");
+    printf("■c.結束          ■\n");
+    printf("■■■■■■■■■■■■■■■■■■\n");
     return 0;
 }
