@@ -113,8 +113,14 @@ int main(){
 		system("CLS");
 		
 		}
-	else if(1){
-			
+	else if(ch=='C'||ch=='c'){
+			printf("Continue?(y/n)");
+			if(ch=='Y'||ch=='y'){
+				break;
+			}
+			if(ch=='N'||ch=='n'){
+				return 0;
+			}
 		}
 
 	
