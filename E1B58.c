@@ -1,4 +1,11 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include <time.h>
+#include <conio.h>
+
+#define ROWS 9
+#define COLS 9
+
 int main(void){
 	 //第一題個人風格畫面
 	printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
@@ -14,7 +21,7 @@ int main(void){
 	printf("■    E       1   B    B            5  8    8     ■\n");
 	printf("■    E       1   B    B            5  8    8     ■\n");
 	printf("■    E       1   B    B            5  8    8     ■\n");
-	printf("■    EEEEEE  11  BBBBB        555555  888888     ■\n");
+	printf("■    EEEEEE 111  BBBBB        555555  888888     ■\n");
 	printf("■                                                ■\n");
 	printf("■                                                ■\n");
 	printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
@@ -54,6 +61,29 @@ int main(void){
 	printf("|  c. Choose by yourself          |\n");
 	printf("|  d. Exit                        |\n");
 	printf("-----------------------------------\n");
-	 
+	
+	
+	 void generateSeats(char seats[ROWS][COLS]) {
+    // 初始化所有座位為空
+    int i,j,k;
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            seats[i][j] = 'O'; // 'O' 表示空座位
+        }
+    }
+
+    // 隨機選擇10個座位設置為已預訂
+    for (k = 0; k < 10; k++) {
+        int row, col;
+        do {
+            row = rand() % ROWS;
+            col = rand() % COLS;
+        } while (seats[row][col] == '*'); // 確保不重複選擇同一個座位
+
+        seats[row][col] = '*'; // '*' 表示已預訂
+    }
+}
+
+
 return 0;
 }
