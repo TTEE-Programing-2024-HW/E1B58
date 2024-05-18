@@ -43,5 +43,17 @@ int main(void){
    		}
    }
 } 
+	//system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
+	system("CLS");//清除螢幕
 //第一題結束
+//第二題開始
+	
+	printf("----------[BookingSystem]----------\n");
+	printf("|  a. Available seats             |\n");
+	printf("|  b. Arrange for you             |\n");
+	printf("|  c. Choose by yourself          |\n");
+	printf("|  d. Exit                        |\n");
+	printf("-----------------------------------\n");
+	 
+return 0;
 }
