@@ -125,7 +125,6 @@ int main(void){
                 _getch();
                 updateSeats(seats);
                 clearScreen();
-                break;
 				break;
 			}
 		case 'd':
@@ -138,13 +137,9 @@ int main(void){
 	            }
 	            clearScreen();
 	            break;	
-			}
-                
-            
-        
-			break;
-		}
-	
+			}        
+		break;
+	}
 	continue;
 }
 	
@@ -186,22 +181,21 @@ void generateSeats(char seats[ROWS][COLS]) {
     }
 }
 // 自動安排座位
-void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded){
-	// 清除之前的建議座位
-	int i,j;
+void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded) {
+    // Clear previous suggestions
+    int i,j;
     for ( i = 0; i < ROWS; i++) {
         for ( j = 0; j < COLS; j++) {
             if (seats[i][j] == '@') {
                 seats[i][j] = 'O';
             }
         }
-         // 尋找並建議座位
-    int found = 0; // 標記是否找到合適的座位
+    }
 
-    // 尋找連續座位
+    // Find and suggest seats
+    int found = 0;
     if (seatsNeeded == 1 || seatsNeeded == 2 || seatsNeeded == 3) {
-        // 單行中連續座位
-        int i,j,k;
+    	int i,j,k;
         for ( i = 0; i < ROWS && !found; i++) {
             for ( j = 0; j <= COLS - seatsNeeded; j++) {
                 int available = 1;
@@ -222,8 +216,7 @@ void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded){
             }
         }
     } else if (seatsNeeded == 4) {
-        // 單行中連續4個座位
-        int i,j,k;
+    	int i,j,k;
         for ( i = 0; i < ROWS && !found; i++) {
             for ( j = 0; j <= COLS - 4; j++) {
                 int available = 1;
@@ -243,12 +236,11 @@ void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded){
                 }
             }
         }
-        // 若無法找到單行連續4個座位，則尋找相鄰兩行各兩個連續座位
         if (!found) {
         	int i,j;
             for ( i = 0; i < ROWS - 1 && !found; i++) {
-                for ( j = 0; j < COLS - 1; j++) {
-                    if (seats[i][j] == 'O' && seats[i + 1][j] == 'O' && seats[i][j + 1] == 'O' && seats[i + 1][j + 1] == 'O') {
+                for ( j = 0; j < COLS; j++) {
+                    if (seats[i][j] == 'O' && seats[i + 1][j] == 'O') {
                         seats[i][j] = '@';
                         seats[i + 1][j] = '@';
                         seats[i][j + 1] = '@';
@@ -262,7 +254,7 @@ void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded){
     }
 }
 
-    }
+    
 void chooseSeats(char seats[ROWS][COLS]) {
     int row, col;
     char buffer[10];
@@ -289,8 +281,17 @@ void chooseSeats(char seats[ROWS][COLS]) {
         } else {
             seats[row - 1][col - 1] = '@';
         }
-    }
+    }   
+	displaySeats(seats); 
 }
+
+//scanf("%s",input);
+    //if (sscanf(input,"%d-%d",&row,&col)!=2||row<1||row>9||col<1||col>9||seat[row-1][col-1]=='*'||seat[row-1][col-1]=='@') {
+    //        printf("格式錯誤或座位已被佔用，請重新輸入。\n");
+    //       continue;
+    //    }
+    //    seat[row-1][col-1]='@';
+
 void updateSeats(char seats[ROWS][COLS]) {
     // Update '@' to '*'
     int i,j;
