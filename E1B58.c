@@ -5,6 +5,9 @@
 
 #define ROWS 9
 #define COLS 9
+// 函數宣告
+void generateSeats(char seats[ROWS][COLS]);
+void displaySeats(char seats[ROWS][COLS]);
 
 int main(void){
 	 //第一題個人風格畫面
@@ -31,7 +34,7 @@ int main(void){
 	char password[] = "2024"; // 正確的密碼
     char input[20]; // 用於接收密碼輸入
     int attempt = 0; // 密碼嘗試次數
-    
+    char seats[ROWS][COLS];
     // 讀取密碼並檢查
     while (1) {
   		attempt++;
@@ -54,26 +57,42 @@ int main(void){
 	system("CLS");//清除螢幕
 //第一題結束
 //第二題開始
-	
+	while(1){
 	printf("----------[BookingSystem]----------\n");
 	printf("|  a. Available seats             |\n");
 	printf("|  b. Arrange for you             |\n");
 	printf("|  c. Choose by yourself          |\n");
 	printf("|  d. Exit                        |\n");
 	printf("-----------------------------------\n");
+//第二題結束
+//第三題開始
 	char choice;
 	choice = _getch(); // 使用 _getch 讀取單個字符
+	system("CLS");
 	switch(choice){
-		case 'a||A':{
+		case 'a':{
+			generateSeats(seats);
+			displaySeats(seats);
+			system("PAUSE");
+			system("CLS");
+			break;
+		}
+		case 'A':{
+			generateSeats(seats);
+			displaySeats(seats);
+			system("PAUSE");
+			system("CLS");
 			break;
 		}
 	}
+	continue;
+}//第三題結束 
+return 0;}
 
-return 0;
-}
+//展示座位 
 void displaySeats(char seats[ROWS][COLS]) {
-    printf(" \\123456789\n");
     int i,j;
+    printf(" \\123456789\n");
     for ( i = ROWS - 1; i >= 0; i--) {
         printf("%d ", i + 1);
         for ( j = 0; j < COLS; j++) {
