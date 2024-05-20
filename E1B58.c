@@ -222,6 +222,33 @@ void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded){
 }
 
     }
+void chooseSeats(char seats[ROWS][COLS]) {
+    int row, col;
+    char buffer[10];
+
+    // Clear previous suggestions
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            if (seats[i][j] == '@') {
+                seats[i][j] = 'O';
+            }
+        }
+    }
+
+    while (1) {
+        printf("Enter seat (row-col) or 'done' to finish: ");
+        scanf("%s", buffer);
+        if (strcmp(buffer, "done") == 0) {
+            break;
+        }
+
+        if (sscanf(buffer, "%d-%d", &row, &col) != 2 || row < 1 || row > ROWS || col < 1 || col > COLS || seats[row - 1][col - 1] != 'O') {
+            printf("Invalid input or seat already taken. Please try again.\n");
+        } else {
+            seats[row - 1][col - 1] = '@';
+        }
+    }
+}
 void clearScreen() {
     system("cls");
 }
