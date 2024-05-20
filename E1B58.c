@@ -61,9 +61,28 @@ int main(void){
 	printf("|  c. Choose by yourself          |\n");
 	printf("|  d. Exit                        |\n");
 	printf("-----------------------------------\n");
-	
-	
-	 void generateSeats(char seats[ROWS][COLS]) {
+	char choice;
+	choice = _getch(); // 使用 _getch 讀取單個字符
+	switch(choice){
+		case 'a||A':{
+			break;
+		}
+	}
+
+return 0;
+}
+void displaySeats(char seats[ROWS][COLS]) {
+    printf(" \\123456789\n");
+    int i,j;
+    for ( i = ROWS - 1; i >= 0; i--) {
+        printf("%d ", i + 1);
+        for ( j = 0; j < COLS; j++) {
+            printf("%c", seats[i][j]);
+        }
+        printf("\n");
+    }
+}
+void generateSeats(char seats[ROWS][COLS]) {
     // 初始化所有座位為空
     int i,j,k;
     for (i = 0; i < ROWS; i++) {
@@ -82,8 +101,4 @@ int main(void){
 
         seats[row][col] = '*'; // '*' 表示已預訂
     }
-}
-
-
-return 0;
 }
