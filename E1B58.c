@@ -1,14 +1,20 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include <conio.h>
+#include <string.h> 
 
 #define ROWS 9
 #define COLS 9
-// 函數宣告
+#define RESERVED_SEATS 10
+
 void generateSeats(char seats[ROWS][COLS]);
 void displaySeats(char seats[ROWS][COLS]);
-void revision(char seats[ROWS][COLS]);
+void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded);
+void chooseSeats(char seats[ROWS][COLS]);
+void updateSeats(char seats[ROWS][COLS]);
+void clearScreen();
+void showMenu();
 
 int main(void){
 	 //第一題個人風格畫面
@@ -87,8 +93,10 @@ int main(void){
 		}//第三題結束 
 		//第四題開始 
 		case 'b':{
+			int seatsNeeded;
 			printf("How many seats would you need?(1-4):");
-			
+			scanf("%d",&seatsNeeded);
+			arrangeSeats(seatsNeeded);
 			break;
 		}
 		case 'B':{
@@ -138,5 +146,93 @@ void generateSeats(char seats[ROWS][COLS]) {
 }
 // 自動安排座位
 void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded){
-	
+	// 清除之前的建議座位
+	int i,j;
+    for ( i = 0; i < ROWS; i++) {
+        for ( j = 0; j < COLS; j++) {
+            if (seats[i][j] == '@') {
+                seats[i][j] = 'O';
+            }
+        }
+         // 尋找並建議座位
+    int found = 0; // 標記是否找到合適的座位
+
+    // 尋找連續座位
+    if (seatsNeeded == 1 || seatsNeeded == 2 || seatsNeeded == 3) {
+        // 單行中連續座位
+        int i,j,k;
+        for ( i = 0; i < ROWS && !found; i++) {
+            for ( j = 0; j <= COLS - seatsNeeded; j++) {
+                int available = 1;
+                for ( k = 0; k < seatsNeeded; k++) {
+                    if (seats[i][j + k] != 'O') {
+                        available = 0;
+                        break;
+                    }
+                }
+                if (available) {
+                	int k;
+                    for ( k = 0; k < seatsNeeded; k++) {
+                        seats[i][j + k] = '@';
+                    }
+                    found = 1;
+                    break;
+                }
+            }
+        }
+    } else if (seatsNeeded == 4) {
+        // 單行中連續4個座位
+        int i,j,k;
+        for ( i = 0; i < ROWS && !found; i++) {
+            for ( j = 0; j <= COLS - 4; j++) {
+                int available = 1;
+                for ( k = 0; k < 4; k++) {
+                    if (seats[i][j + k] != 'O') {
+                        available = 0;
+                        break;
+                    }
+                }
+                if (available) {
+                	int k;
+                    for ( k = 0; k < 4; k++) {
+                        seats[i][j + k] = '@';
+                    }
+                    found = 1;
+                    break;
+                }
+            }
+        }
+        // 若無法找到單行連續4個座位，則尋找相鄰兩行各兩個連續座位
+        if (!found) {
+        	int i,j;
+            for ( i = 0; i < ROWS - 1 && !found; i++) {
+                for ( j = 0; j < COLS - 1; j++) {
+                    if (seats[i][j] == 'O' && seats[i + 1][j] == 'O' && seats[i][j + 1] == 'O' && seats[i + 1][j + 1] == 'O') {
+                        seats[i][j] = '@';
+                        seats[i + 1][j] = '@';
+                        seats[i][j + 1] = '@';
+                        seats[i + 1][j + 1] = '@';
+                        found = 1;
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }
+
+    }
+void clearScreen() {
+    system("cls");
+}
+
+void showMenu() {
+    printf("----------[Booking System]----------\n");
+    printf("| a. Available seats               |\n");
+    printf("| b. Arrange for you               |\n");
+    printf("| c. Choose by yourself            |\n");
+    printf("| d. Exit                          |\n");
+    printf("------------------------------------\n");
+}
+   
+
