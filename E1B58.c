@@ -94,16 +94,52 @@ int main(void){
 		//第四題開始 
 		case 'b':{
 			int seatsNeeded;
-			printf("How many seats would you need?(1-4):");
-			scanf("%d",&seatsNeeded);
-			arrangeSeats(seatsNeeded);
-			break;
-		}
+                clearScreen();
+                printf("How many seats do you need (1-4)? ");
+                scanf("%d", &seatsNeeded);
+                if (seatsNeeded < 1 || seatsNeeded > 4) {
+                    printf("Invalid number of seats. Press any key to return to main menu...");
+                    _getch();
+                    clearScreen();
+                    break;
+                }
+                arrangeSeats(seats, seatsNeeded);
+                clearScreen();
+                displaySeats(seats);
+                printf("Are you satisfied with the arrangement (y/n)? ");
+                char satisfied = _getch();
+                if (satisfied == 'y') {
+                    updateSeats(seats);
+                }
+                clearScreen();
+                break;
+            }
+		
 		case 'B':{
-			
+			int seatsNeeded;
+                clearScreen();
+                printf("How many seats do you need (1-4)? ");
+                scanf("%d", &seatsNeeded);
+                if (seatsNeeded < 1 || seatsNeeded > 4) {
+                    printf("Invalid number of seats. Press any key to return to main menu...");
+                    _getch();
+                    clearScreen();
+                    break;
+                }
+                arrangeSeats(seats, seatsNeeded);
+                clearScreen();
+                displaySeats(seats);
+                printf("Are you satisfied with the arrangement (y/n)? ");
+                char satisfied = _getch();
+                if (satisfied == 'y') {
+                    updateSeats(seats);
+                }
+                clearScreen();
+                break;
+            }
 			break;
 		}
-	}
+	
 	continue;
 }
 	
@@ -227,8 +263,9 @@ void chooseSeats(char seats[ROWS][COLS]) {
     char buffer[10];
 
     // Clear previous suggestions
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLS; j++) {
+    int i,j;
+    for ( i = 0; i < ROWS; i++) {
+        for ( j = 0; j < COLS; j++) {
             if (seats[i][j] == '@') {
                 seats[i][j] = 'O';
             }
@@ -251,8 +288,9 @@ void chooseSeats(char seats[ROWS][COLS]) {
 }
 void updateSeats(char seats[ROWS][COLS]) {
     // Update '@' to '*'
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLS; j++) {
+    int i,j;
+    for ( i = 0; i < ROWS; i++) {
+        for ( j = 0; j < COLS; j++) {
             if (seats[i][j] == '@') {
                 seats[i][j] = '*';
             }
