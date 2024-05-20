@@ -249,6 +249,16 @@ void chooseSeats(char seats[ROWS][COLS]) {
         }
     }
 }
+void updateSeats(char seats[ROWS][COLS]) {
+    // Update '@' to '*'
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            if (seats[i][j] == '@') {
+                seats[i][j] = '*';
+            }
+        }
+    }
+}
 void clearScreen() {
     system("cls");
 }
