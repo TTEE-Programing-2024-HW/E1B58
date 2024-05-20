@@ -7,7 +7,7 @@
 #define ROWS 9
 #define COLS 9
 #define RESERVED_SEATS 10
-
+// function declaration
 void generateSeats(char seats[ROWS][COLS]);
 void displaySeats(char seats[ROWS][COLS]);
 void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded);
@@ -17,7 +17,7 @@ void clearScreen();
 void showMenu();
 
 int main(void){
-	 //第一題個人風格畫面
+	 //Question 1 personal style picture
 	printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 	printf("■                                                ■\n");
 	printf("■                                                ■\n");
@@ -36,13 +36,13 @@ int main(void){
 	printf("■                                                ■\n");
 	printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 	
-	system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
-	system("CLS");//清除螢幕
-	char password[] = "2024"; // 正確的密碼
-    char input[20]; // 用於接收密碼輸入
-    int attempt = 0; // 密碼嘗試次數
+	system("PAUSE");//Pauses program execution and waits for the user to press any key
+	system("CLS");//clear screen
+	char password[] = "2024"; // correct password
+    char input[20]; //Used to receive password input
+    int attempt = 0; // Password attempts
     char seats[ROWS][COLS];
-    // 讀取密碼並檢查
+    // Read the password and check
     while (1) {
   		attempt++;
         printf("Enter the password: ");
@@ -50,9 +50,9 @@ int main(void){
    if(strcmp(input,password)==0)
    		break;
    		else{
-   	if(attempt==3)//累計三次，程式結束 
+   	if(attempt==3)//Accumulated three times, the program ends
    	{	printf("Too many incorrect password attempts. Exiting program.\n");
-	 	 return 0; //程式結束
+	 	 return 0; //End of program
 		  }
    	
    	else{
@@ -60,10 +60,10 @@ int main(void){
    		}
    }
 } 
-	//system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
-	system("CLS");//清除螢幕
-//第一題結束
-//第二題開始
+	//system("PAUSE");//Pauses program execution and waits for the user to press any key
+	system("CLS");//clear screen
+//End of first question
+//The second question begins
 	while(1){
 	printf("----------[BookingSystem]----------\n");
 	printf("|  a. Available seats             |\n");
@@ -71,11 +71,11 @@ int main(void){
 	printf("|  c. Choose by yourself          |\n");
 	printf("|  d. Exit                        |\n");
 	printf("-----------------------------------\n");
-//第二題結束
-//第三題開始
+//End of second question
+//The third question begins
 	char choice;
-	choice = _getch(); // 使用 _getch 讀取單個字符
-	system("CLS");//清除螢幕
+	choice = _getch(); // Use _getch to read a single character
+	system("CLS");//clear screen
 	switch(choice){
 		case 'a':{
 			generateSeats(seats);
@@ -90,8 +90,8 @@ int main(void){
 			system("PAUSE");
 			system("CLS");
 			break;
-		}//第三題結束 
-		//第四題開始 
+		}//End of the third question
+		//The fourth question begins
 		case 'b':
 		case 'B':{
 			int seatsNeeded;
@@ -114,8 +114,8 @@ int main(void){
                 }
                 clearScreen();
                 break;
-            }
-		case 'c':
+            }//4end
+		case 'c'://5start
 		case 'C':{
 				clearScreen();
                 chooseSeats(seats);
@@ -127,8 +127,8 @@ int main(void){
                 displaySeats(seats);
                 clearScreen();
 				break;
-			}
-		case 'd':
+			}//5end
+		case 'd'://6start
 		case 'D':{
 				clearScreen();
 	            printf("Continue? (y/n): ");
@@ -143,13 +143,13 @@ int main(void){
 	}
 	continue;
 }
-	
+	//6end
 return 0;}
 
 
 
 
-//展示座位 
+//display seating
 void displaySeats(char seats[ROWS][COLS]) {
     int i,j;
     printf(" \\123456789\n");
@@ -162,26 +162,26 @@ void displaySeats(char seats[ROWS][COLS]) {
     }
 }
 void generateSeats(char seats[ROWS][COLS]) {
-    // 初始化所有座位為空
+    // Initialize all seats to be empty
     int i,j,k;
     for (i = 0; i < ROWS; i++) {
         for (j = 0; j < COLS; j++) {
-            seats[i][j] = 'O'; // 'O' 表示空座位
+            seats[i][j] = 'O'; // 'O' Indicates an empty seat
         }
     }
 
-    // 隨機選擇10個座位設置為已預訂
+    // Randomly select 10 seats and set them as reserved
     for (k = 0; k < 10; k++) {
         int row, col;
-        do {
+        do {// Initialize random number generator
             row = rand() % ROWS;
             col = rand() % COLS;
-        } while (seats[row][col] == '*'); // 確保不重複選擇同一個座位
+        } while (seats[row][col] == '*'); // Make sure you don’t select the same seat twice
 
-        seats[row][col] = '*'; // '*' 表示已預訂
+        seats[row][col] = '*'; // '*' Indicates a reservation
     }
 }
-// 自動安排座位
+// Automatically arrange seats
 void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded) {
     // Clear previous suggestions
     int i,j;
