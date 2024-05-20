@@ -124,6 +124,7 @@ int main(void){
                 printf("Press any key to confirm and return to main menu...");
                 _getch();
                 updateSeats(seats);
+                displaySeats(seats);
                 clearScreen();
 				break;
 			}
@@ -186,6 +187,7 @@ void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded) {
     int i,j;
     for ( i = 0; i < ROWS; i++) {
         for ( j = 0; j < COLS; j++) {
+        	
             if (seats[i][j] == '@') {
                 seats[i][j] = 'O';
             }
@@ -281,16 +283,12 @@ void chooseSeats(char seats[ROWS][COLS]) {
         } else {
             seats[row - 1][col - 1] = '@';
         }
+        break;
     }   
 	displaySeats(seats); 
 }
 
-//scanf("%s",input);
-    //if (sscanf(input,"%d-%d",&row,&col)!=2||row<1||row>9||col<1||col>9||seat[row-1][col-1]=='*'||seat[row-1][col-1]=='@') {
-    //        printf("格式錯誤或座位已被佔用，請重新輸入。\n");
-    //       continue;
-    //    }
-    //    seat[row-1][col-1]='@';
+
 
 void updateSeats(char seats[ROWS][COLS]) {
     // Update '@' to '*'
