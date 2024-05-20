@@ -8,6 +8,7 @@
 // 函數宣告
 void generateSeats(char seats[ROWS][COLS]);
 void displaySeats(char seats[ROWS][COLS]);
+void revision(char seats[ROWS][COLS]);
 
 int main(void){
 	 //第一題個人風格畫面
@@ -68,7 +69,7 @@ int main(void){
 //第三題開始
 	char choice;
 	choice = _getch(); // 使用 _getch 讀取單個字符
-	system("CLS");
+	system("CLS");//清除螢幕
 	switch(choice){
 		case 'a':{
 			generateSeats(seats);
@@ -83,11 +84,25 @@ int main(void){
 			system("PAUSE");
 			system("CLS");
 			break;
+		}//第三題結束 
+		//第四題開始 
+		case 'b':{
+			printf("How many seats would you need?(1-4):");
+			
+			break;
+		}
+		case 'B':{
+			
+			break;
 		}
 	}
 	continue;
-}//第三題結束 
+}
+	
 return 0;}
+
+
+
 
 //展示座位 
 void displaySeats(char seats[ROWS][COLS]) {
@@ -120,4 +135,8 @@ void generateSeats(char seats[ROWS][COLS]) {
 
         seats[row][col] = '*'; // '*' 表示已預訂
     }
+}
+// 自動安排座位
+void arrangeSeats(char seats[ROWS][COLS], int seatsNeeded){
+	
 }
