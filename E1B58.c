@@ -314,4 +314,24 @@ void showMenu() {
     printf("------------------------------------\n");
 }
    
+//This assignment was quite challenging, especially parts B 
+//and C. Dealing with the complexities involved and the 
+//length of the code made it difficult to grasp and even harder
+// to implement. Simply thinking through the logic required a 
+// considerableeffort. Moreover, working with tools I wasn't 
+// previouslyfamiliar with added an extra layer of complexity, 
+//forcing me to learn and adapt on the fly.
+
+//Overall, this assignment pushed me out of my comfort zone. 
+//It required me to navigate through unfamiliar territory and 
+//dive deep into understanding the intricacies of the code. 
+//While it was undoubtedly challenging, it was also a valuable 
+//learning experience that expanded my skills and knowledge in 
+//programming.
+
+
+
+
+
+
 
