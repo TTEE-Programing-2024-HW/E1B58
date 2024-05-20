@@ -92,29 +92,7 @@ int main(void){
 			break;
 		}//第三題結束 
 		//第四題開始 
-		case 'b':{
-			int seatsNeeded;
-                clearScreen();
-                printf("How many seats do you need (1-4)? ");
-                scanf("%d", &seatsNeeded);
-                if (seatsNeeded < 1 || seatsNeeded > 4) {
-                    printf("Invalid number of seats. Press any key to return to main menu...");
-                    _getch();
-                    clearScreen();
-                    break;
-                }
-                arrangeSeats(seats, seatsNeeded);
-                clearScreen();
-                displaySeats(seats);
-                printf("Are you satisfied with the arrangement (y/n)? ");
-                char satisfied = _getch();
-                if (satisfied == 'y') {
-                    updateSeats(seats);
-                }
-                clearScreen();
-                break;
-            }
-		
+		case 'b':
 		case 'B':{
 			int seatsNeeded;
                 clearScreen();
@@ -137,6 +115,33 @@ int main(void){
                 clearScreen();
                 break;
             }
+		case 'c':
+		case 'C':{
+				clearScreen();
+                chooseSeats(seats);
+                clearScreen();
+                displaySeats(seats);
+                printf("Press any key to confirm and return to main menu...");
+                _getch();
+                updateSeats(seats);
+                clearScreen();
+                break;
+				break;
+			}
+		case 'd':
+		case 'D':{
+				clearScreen();
+	            printf("Continue? (y/n): ");
+	            char cont = _getch();
+	            if (cont == 'n') {
+	            return 0;
+	            }
+	            clearScreen();
+	            break;	
+			}
+                
+            
+        
 			break;
 		}
 	
