@@ -119,6 +119,36 @@ void searchGrades() {
     waitForKeyPress(); // 等待用戶按下任意鍵
 }
 
+// 成績排序函數
+void gradeRanking() {
+    clearScreen();
+    if (studentCount == 0) {
+        printf("無學生資料。\n");
+        waitForKeyPress(); // 等待用戶按下任意鍵
+        return;
+    }
+
+    // 排序學生按平均成績從高到低
+    int i,j;
+    for ( i= 0; i < studentCount - 1; i++) {
+        for ( j = i + 1; j < studentCount; j++) {
+            if (students[i].average < students[j].average) {
+                Student temp = students[i];
+                students[i] = students[j];
+                students[j] = temp;
+            }
+        }
+    }
+
+    // 顯示排序結果
+    printf("學生成績排名：\n");
+    i=0;
+    for ( i = 0; i < studentCount; i++) {
+        printf("%d. %s 平均成績: %.2f\n", i + 1, students[i].name, students[i].average);
+    }
+    waitForKeyPress(); // 等待用戶按下任意鍵
+}
+
 int main(){
     
     //第一題個人風格畫面
