@@ -13,6 +13,19 @@ typedef struct {
     float grades[NUM_SUBJECTS]; // 學生成績
     float average; // 平均成績
 } Student;
+
+Student students[MAX_STUDENTS]; // 學生數組
+int studentCount = 0; // 學生數量
+
+// 清空螢幕函數
+void clearScreen() {
+    #ifdef _WIN32
+        system("cls"); // Windows 系統清屏指令
+    #else
+        system("clear"); // UNIX 系統清屏指令
+    #endif
+}
+
 int main(){
     
     //第一題個人風格畫面
