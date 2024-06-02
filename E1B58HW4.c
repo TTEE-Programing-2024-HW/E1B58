@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<conio.h>
 #include<string.h>
 
 #define MAX_STUDENTS 10
@@ -148,53 +147,100 @@ void gradeRanking() {
     }
     waitForKeyPress(); // 等待用戶按下任意鍵
 }
+// 主選單函數
+void mainMenu() {
+    char choice;
+    while (1) {
+        clearScreen();
+        printf("------[Grade System]------\n");
+        printf("a. 輸入學生成績\n");
+        printf("b. 顯示學生成績\n");
+        printf("c. 查詢學生成績\n");
+        printf("d. 成績排序\n");
+        printf("e. 離開系統\n");
+        printf("--------------------------\n");
+        printf("請選擇: ");
+        scanf(" %c", &choice);
 
-int main(){
-    
-    //第一題個人風格畫面
-	printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-	printf("■************************************************■\n");
-	printf("■************************************************■\n");
-	printf("■****EEEEEE**1***BBBB*********555555**888888*****■\n");
-	printf("■****E******11***B***B********5*******8****8*****■\n");
-	printf("■****E*******1***B***B********5*******8****8*****■\n");
-	printf("■****E*******1***B***B********5*******8****8*****■\n");
-	printf("■****E*******1***B***B********5*******8****8*****■\n");
-	printf("■****EEEEE***1***BBBBB********555555**888888*****■\n");
-	printf("■****E*******1***B****B************5**8****8*****■\n");
-	printf("■****E*******1***B****B************5**8****8*****■\n");
-	printf("■****E*******1***B****B************5**8****8*****■\n");
-	printf("■****E*******1***B****B************5**8****8*****■\n");
-	printf("■****EEEEEE*111**BBBBB********555555**888888*****■\n");
-	printf("■************************************************■\n");
-	printf("■************************************************■\n");
-	printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-	
-	system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
-	system("CLS");//清除螢幕
-	
-    
+        switch (choice) {
+            case 'a':
+                clearScreen();
+                enterGrades();
+                break;
+            case 'b':
+                displayGrades();
+                break;
+            case 'c':
+                searchGrades();
+                break;
+            case 'd':
+                gradeRanking();
+                break;
+            case 'e': {
+                printf("確定離開？(y/n): ");
+                char confirm;
+                scanf(" %c", &confirm);
+                if (confirm == 'y' || confirm == 'Y') {
+                    printf("程序結束。\n");
+                    return;
+                }
+                break;
+            }
+            default:
+                printf("無效的選擇，請重新選擇。\n");
+                waitForKeyPress(); // 等待用戶按下任意鍵
+                break;
+        }
+    }
+}
+void welcomeScreen() {
+    printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+    printf("■************************************************■\n");
+    printf("■************************************************■\n");
+    printf("■****EEEEEE**1***BBBB*********555555**888888*****■\n");
+    printf("■****E******11***B***B********5*******8****8*****■\n");
+    printf("■****E*******1***B***B********5*******8****8*****■\n");
+    printf("■****E*******1***B***B********5*******8****8*****■\n");
+    printf("■****E*******1***B***B********5*******8****8*****■\n");
+    printf("■****EEEEE***1***BBBBB********555555**888888*****■\n");
+    printf("■****E*******1***B****B************5**8****8*****■\n");
+    printf("■****E*******1***B****B************5**8****8*****■\n");
+    printf("■****E*******1***B****B************5**8****8*****■\n");
+    printf("■****E*******1***B****B************5**8****8*****■\n");
+    printf("■****EEEEEE*111**BBBBB********555555**888888*****■\n");
+    printf("■************************************************■\n");
+    printf("■************************************************■\n");
+    printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+
+    system("PAUSE");//暫停程式執行並等待使用者按下任意鍵
+    system("CLS");//清除螢幕
+
     char password[] = "2024"; // 正確的密碼
     char input[20]; // 用於接收密碼輸入
     int attempt = 0; // 密碼嘗試次數
-    
+
     // 讀取密碼並檢查
     while (1) {
-  		attempt++;
+        attempt++;
         printf("Enter the password: ");
         scanf("%s", input);
-   if(strcmp(input,password)==0)
-   		break;
-   		else{
-   	if(attempt==3)//累計三次，程式結束 
-   	{	printf("Too many incorrect password attempts. Exiting program.\n");
-	 	 return 0; //程式結束
-		  }
-   	
-   	else{
-   	printf("you have %d chance enter again:",3-attempt);
-   		}
-   }
+        if (strcmp(input, password) == 0)
+            break;
+        else {
+            if (attempt == 3) { //累計三次，程式結束 
+                printf("Too many incorrect password attempts. Exiting program.\n");
+                exit(0); // 程式結束
+            } else {
+                printf("you have %d chance enter again: ", 3 - attempt);
+            }
+        }
+    }
 }
-} 
-//第一題結束
+
+// 主程序入口
+int main() {
+    welcomeScreen(); // 顯示歡迎畫面並進行密碼驗證
+    mainMenu(); // 顯示主選單
+    return 0;
+}
+
