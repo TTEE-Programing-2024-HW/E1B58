@@ -26,6 +26,59 @@ void clearScreen() {
     #endif
 }
 
+// 等待用戶按下任意鍵函數
+void waitForKeyPress() {
+    printf("按任意鍵返回主選單...\n");
+    getchar(); // 捕獲Enter鍵
+    getchar(); // 等待用戶按下任意鍵
+}
+
+// 輸入學生成績函數
+void enterGrades() {
+    int n;
+    printf("請輸入學生數量（5~10的整數）: ");
+    // 驗證輸入的學生數量
+    while (scanf("%d", &n) != 1 || n < 5 || n > 10) {
+        printf("輸入錯誤，請輸入5到10之間的整數: ");
+        while (getchar() != '\n'); // 清空輸入緩衝區
+    }
+
+    // 依次輸入每個學生的信息
+    int i;
+    for ( i = 0; i < n; i++) {
+        if (studentCount >= MAX_STUDENTS) {
+            printf("學生數量已達上限。\n");
+            return;
+        }
+
+        printf("輸入學生姓名: ");
+        scanf("%s", students[studentCount].name);
+
+        printf("輸入學號（6位整數）: ");
+        // 驗證輸入的學號
+        while (scanf("%d", &students[studentCount].id) != 1 || students[studentCount].id < 100000 || students[studentCount].id > 999999) {
+            printf("輸入錯誤，請輸入6位整數的學號: ");
+            while (getchar() != '\n'); // 清空輸入緩衝區
+        }
+
+        float sum = 0;
+        // 依次輸入各科成績
+        int j;
+        for (j = 0; j < NUM_SUBJECTS; j++) {
+            const char* subjects[] = {"數學", "物理", "英文"};
+            printf("輸入%s成績（0~100分）: ", subjects[j]);
+            // 驗證輸入的成績
+            while (scanf("%f", &students[studentCount].grades[j]) != 1 || students[studentCount].grades[j] < 0 || students[studentCount].grades[j] > 100) {
+                printf("輸入錯誤，請輸入0到100之間的成績: ");
+                while (getchar() != '\n'); // 清空輸入緩衝區
+            }
+            sum += students[studentCount].grades[j];
+        }
+        students[studentCount].average = sum / NUM_SUBJECTS; // 計算平均成績
+        studentCount++;
+    }
+}
+
 int main(){
     
     //第一題個人風格畫面
