@@ -79,6 +79,46 @@ void enterGrades() {
     }
 }
 
+// 顯示學生成績函數
+void displayGrades() {
+    clearScreen();
+    int i,j;
+    for ( i = 0; i < studentCount; i++) {
+        printf("學生姓名: %s\n", students[i].name);
+        printf("學號: %d\n", students[i].id);
+        printf("各科成績: ");
+        for ( j = 0; j < NUM_SUBJECTS; j++) {
+            printf("%.2f ", students[i].grades[j]);
+        }
+        printf("\n平均成績: %.2f\n", students[i].average);
+    }
+    waitForKeyPress(); // 等待用戶按下任意鍵
+}
+
+// 查詢學生成績函數
+void searchGrades() {
+    clearScreen();
+    char searchName[50];
+    printf("輸入要查詢的學生姓名: ");
+    scanf("%s", searchName);
+    int i,j;
+    for ( i = 0; i < studentCount; i++) {
+        if (strcmp(students[i].name, searchName) == 0) {
+            printf("學生姓名: %s\n", students[i].name);
+            printf("學號: %d\n", students[i].id);
+            printf("各科成績: ");
+            for ( j = 0; j < NUM_SUBJECTS; j++) {
+                printf("%.2f ", students[i].grades[j]);
+            }
+            printf("\n平均成績: %.2f\n", students[i].average);
+            waitForKeyPress(); // 等待用戶按下任意鍵
+            return;
+        }
+    }
+    printf("未找到學生 %s 的成績。\n", searchName);
+    waitForKeyPress(); // 等待用戶按下任意鍵
+}
+
 int main(){
     
     //第一題個人風格畫面
