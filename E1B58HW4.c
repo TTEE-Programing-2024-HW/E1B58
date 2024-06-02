@@ -3,6 +3,16 @@
 #include<conio.h>
 #include<string.h>
 
+#define MAX_STUDENTS 10
+#define NUM_SUBJECTS 3
+
+// 學生結構體定義
+typedef struct {
+    char name[50]; // 學生姓名
+    int id; // 學生學號
+    float grades[NUM_SUBJECTS]; // 學生成績
+    float average; // 平均成績
+} Student;
 int main(){
     
     //第一題個人風格畫面
